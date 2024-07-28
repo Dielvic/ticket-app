@@ -5,6 +5,8 @@ on:
     paths:
       - 'orders/**'
   push:
+    branches:
+      - master
     paths:
       - 'orders/**'
 

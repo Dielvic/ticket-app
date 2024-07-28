@@ -5,6 +5,8 @@ on:
     paths:
       - 'payments/**'
   push:
+    branches:
+      - master
     paths:
       - 'payments/**'
 

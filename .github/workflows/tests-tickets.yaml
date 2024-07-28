@@ -5,6 +5,8 @@ on:
     paths:
       - 'tickets/**'
   push:
+    branches:
+      - master
     paths:
       - 'tickets/**'
 
