@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - 'auth/**'
+  push:
+    paths:
+      - 'auth/**'
 
 jobs:
   build:

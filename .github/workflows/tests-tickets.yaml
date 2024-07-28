@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - 'tickets/**'
+  push:
+    paths:
+      - 'tickets/**'
+
 
 jobs:
   build:
