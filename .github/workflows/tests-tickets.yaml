@@ -4,6 +4,13 @@ on:
   pull_request:
     paths:
       - 'tickets/**'
+  push:
+    branches:
+      - master
+      - feature*
+    paths:
+      - 'tickets/**'
+
 
 jobs:
   build:

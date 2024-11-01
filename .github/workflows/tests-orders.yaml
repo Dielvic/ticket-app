@@ -4,6 +4,13 @@ on:
   pull_request:
     paths:
       - 'orders/**'
+  push:
+    branches:
+      - master
+      - feature*
+    paths:
+      - 'orders/**'
+
 
 jobs:
   build:
