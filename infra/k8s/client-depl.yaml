@@ -15,6 +15,9 @@ spec:
       containers:
         - name: client
           image: dvc100/client:v1
+          env:
+           - name: NODE_OPTIONS
+             value: "--openssl-legacy-provider"
 ---
 apiVersion: v1
 kind: Service
