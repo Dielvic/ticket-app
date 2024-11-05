@@ -1,0 +1,10 @@
+# overlays/dev/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: kustomization
+
+namespace: ticket-app
+resources:
+  - ../../k8s
+
+patches:
+  - ingress-srv.yaml

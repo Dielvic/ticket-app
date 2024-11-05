@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Dielvic/ticket-app.git
     targetRevision: HEAD
-    path: infra/k8s
+    path: infra/k8s/overlays/k8s-dev
   destination:
     server: https://kubernetes.default.svc  #internal service of the cluster, because argocd run inside the cluster . We can use an external adress for the cluster argocd is not installed
     namespace: ticket-app 
