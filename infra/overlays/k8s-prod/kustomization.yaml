@@ -4,6 +4,6 @@ namespace: ticket-app
 resources:
   - ../../base/
   - load-balancer.yaml
+  - ingress-patch.yaml
 
-patches:
-  - path: ingress-patch.yaml
+
