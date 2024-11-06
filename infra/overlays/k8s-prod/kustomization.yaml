@@ -1,0 +1,9 @@
+# overlays/dev/kustomization.yaml
+
+namespace: ticket-app
+resources:
+  - ../../base/
+  - load-balancer.yaml
+
+patches:
+  - path: ingress-patch.yaml
