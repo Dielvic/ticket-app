@@ -1,5 +1,5 @@
 resources:
-  - ingress-srv.yaml
+
   - auth-depl.yaml
   - auth-mongo-depl.yaml
   - client-depl.yaml
