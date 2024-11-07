@@ -5,8 +5,6 @@ resources:
   - ../../base/
   - ingress-patch.yaml
  
- 
-patches:
-  - path: load-balancer.yaml 
+
 
 
