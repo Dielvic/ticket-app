@@ -1,6 +1,5 @@
 resources:
-  - ingress-controller-rbac.yaml
-  - ingress-nginx-controller.yaml
+
   - auth-depl.yaml
   - auth-mongo-depl.yaml
   - client-depl.yaml
