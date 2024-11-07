@@ -4,6 +4,7 @@ namespace: ticket-app
 resources:
   - ../../base/
   - ingress-patch.yaml
+
  
 
 
