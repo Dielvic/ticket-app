@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
   rules:
-    - host: instantcloud.eu
+    - host: www.instantcloud.eu
       http:
         paths:
           - path: /api/payments/
