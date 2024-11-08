@@ -6,7 +6,7 @@ export default ({ req }) => {
 
     return axios.create({
       baseURL:
-        'http://www.instantcloud.eu',
+        'http://www.instantcloud.eu/',
       headers: req.headers,
     });
   } else {
