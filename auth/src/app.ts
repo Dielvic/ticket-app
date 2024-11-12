@@ -4,6 +4,7 @@ import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError } from '@sgtickets/common';
 
+
 import { currentUserRouter } from './routes/current-user';
 import { signinRouter } from './routes/signin';
 import { signoutRouter } from './routes/signout';
@@ -25,7 +26,7 @@ app.use(signinRouter);
 app.use(signoutRouter);
 app.use(signupRouter);
 
-app.all('*', async (req, res) => {
+app.all('*', async (req:Request, res:Response) => {
   throw new NotFoundError();
 });
 
