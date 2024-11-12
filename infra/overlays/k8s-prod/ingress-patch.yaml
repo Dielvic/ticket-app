@@ -12,7 +12,7 @@ spec:
       http:
          paths:
           - path: /api/payments/?(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: payments-srv
@@ -40,7 +40,7 @@ spec:
                 port:
                   number: 3000
           - path: /?(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: client-srv
