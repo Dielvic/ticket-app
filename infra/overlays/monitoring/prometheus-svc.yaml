@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: prom-pls-svc
   annotations:
-    service.beta.kubernetes.io/azure-load-balancer-internal: "true" # Use an internal LB with PLS
+    service.beta.kubernetes.io/azure-load-balancer-internal: "false" # Use an internal LB with PLS
     service.beta.kubernetes.io/azure-pls-create: "true"
     service.beta.kubernetes.io/azure-pls-name: promManagedPls
     service.beta.kubernetes.io/azure-pls-proxy-protocol: "false"
