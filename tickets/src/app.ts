@@ -24,7 +24,7 @@ app.use(showTicketRouter);
 app.use(indexTicketRouter);
 app.use(updateTicketRouter);
 
-app.all('*', async (req:Request, res:Response) => {
+app.all('*', async (req: Request, res: Response) => {
   throw new NotFoundError();
 });
 
