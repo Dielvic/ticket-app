@@ -1,4 +1,4 @@
-import express, { Request, Response }  from 'express';
+import express  from 'express';
 import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
@@ -24,7 +24,7 @@ app.use(showTicketRouter);
 app.use(indexTicketRouter);
 app.use(updateTicketRouter);
 
-app.all('*', async (req: Request, res: Response) => {
+app.all('*', async (req: any, res: any) => {
   throw new NotFoundError();
 });
 
