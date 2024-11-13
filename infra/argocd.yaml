@@ -46,7 +46,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: myapp-argo-application-3
   namespace: monitoring
 spec:
   project: default
