@@ -11,16 +11,14 @@ spec:
     targetRevision: HEAD
     path: infra/overlays/k8s-prod
   destination:
-    server: https://kubernetes.default.svc  #internal service of the cluster, because argocd run inside the cluster . We can use an external adress for the cluster argocd is not installed
-    
+    server: https://kubernetes.default.svc  #internal service of the cluster, because argocd runs inside the cluster
+
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
-
-    automated: 
+      - CreateNamespace=true
+    automated:
       selfHeal: true
-      prune: true  
-
+      prune: true
 
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -36,11 +34,14 @@ spec:
     targetRevision: HEAD
     path: infra/overlays/ingress-controller
   destination:
-    server: https://kubernetes.default.svc  #internal service of the cluster, because argocd run inside the cluster . We can use an external adress for the cluster argocd is not installed
-    
+    server: https://kubernetes.default.svc  #internal service of the cluster, because argocd runs inside the cluster
+
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true      
 
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -56,15 +57,11 @@ spec:
     targetRevision: HEAD
     path: infra/overlays/monitoring
   destination:
-    server: https://kubernetes.default.svc  #internal service of the cluster, because argocd run inside the cluster . We can use an external adress for the cluster argocd is not installed
-    
+    server: https://kubernetes.default.svc  #internal service of the cluster, because argocd runs inside the cluster
+
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
-
-    automated: 
+      - CreateNamespace=true
+    automated:
       selfHeal: true
-      prune: true  
-
-
-
+      prune: true
