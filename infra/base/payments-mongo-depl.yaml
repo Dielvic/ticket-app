@@ -1,9 +1,10 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: payments-mongo-depl
+  name: payments-mongo-stateful
 spec:
-  replicas: 1
+  replicas: 3
+  serviceName: "payments-mongo-srv-headless"  # Requis pour un StatefulSet
   selector:
     matchLabels:
       app: payments-mongo
@@ -13,14 +14,29 @@ spec:
         app: payments-mongo
     spec:
       containers:
-        - name: payments-mongo
-          image: mongo
+      - name: payments-mongo
+        image: mongo
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: pvc-payments-mongo
+          mountPath: /data/db
+  volumeClaimTemplates:  # Crée des PVC pour chaque pod
+  - metadata:
+      name: pvc-payments-mongo
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 1Gi
+      storageClassName: managed-csi # managed-csi-zrs # default
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: payments-mongo-srv
+  name: "payments-mongo-srv-headless"
 spec:
+  clusterIP: None
   selector:
     app: payments-mongo
   ports:

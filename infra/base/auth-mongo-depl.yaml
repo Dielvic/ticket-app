@@ -1,9 +1,10 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: auth-mongo-depl
+  name: auth-mongo-stateful
 spec:
-  replicas: 1
+  replicas: 3
+  serviceName: "auth-mongo-srv-headless"  # Requis pour un StatefulSet
   selector:
     matchLabels:
       app: auth-mongo
@@ -13,14 +14,29 @@ spec:
         app: auth-mongo
     spec:
       containers:
-        - name: auth-mongo
-          image: mongo
+      - name: auth-mongo
+        image: mongo
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: pvc-auth-mongo
+          mountPath: /data/db
+  volumeClaimTemplates:  # Crée des PVC pour chaque pod
+  - metadata:
+      name: pvc-auth-mongo
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 1Gi
+      storageClassName: managed-csi # managed-csi-zrs # default
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: auth-mongo-srv
+  name: "auth-mongo-srv-headless"
 spec:
+  clusterIP: None
   selector:
     app: auth-mongo
   ports:
