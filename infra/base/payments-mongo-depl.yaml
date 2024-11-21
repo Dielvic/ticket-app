@@ -4,7 +4,7 @@ metadata:
   name: payments-mongo-stateful
 spec:
   replicas: 3
-  serviceName: "payments-mongo-srv-headless"  # Requis pour un StatefulSet
+  serviceName: "payments-mongo-srv"  # Requis pour un StatefulSet
   selector:
     matchLabels:
       app: payments-mongo
