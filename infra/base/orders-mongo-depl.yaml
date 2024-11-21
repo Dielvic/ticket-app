@@ -4,7 +4,7 @@ metadata:
   name: orders-mongo-stateful
 spec:
   replicas: 3
-  serviceName: "orders-mongo-srv-headless"  # Requis pour un StatefulSet
+  serviceName: "orders-mongo-srv"  # Requis pour un StatefulSet
   selector:
     matchLabels:
       app: orders-mongo
@@ -20,7 +20,7 @@ spec:
         - containerPort: 27017
         volumeMounts:
         - name: pvc-orders-mongo
-          mountPath: /data/db
+          mountPath: /data/db/orders
   volumeClaimTemplates:  # Crée des PVC pour chaque pod
   - metadata:
       name: pvc-orders-mongo

@@ -20,7 +20,7 @@ spec:
         - containerPort: 27017
         volumeMounts:
         - name: pvc-payments-mongo
-          mountPath: /data/db
+          mountPath: /data/db/payments
   volumeClaimTemplates:  # Crée des PVC pour chaque pod
   - metadata:
       name: pvc-payments-mongo

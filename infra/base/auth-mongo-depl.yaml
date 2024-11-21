@@ -4,7 +4,7 @@ metadata:
   name: auth-mongo-stateful
 spec:
   replicas: 3
-  serviceName: "auth-mongo-srv-headless"  # Requis pour un StatefulSet
+  serviceName: "auth-mongo-srv"  # Requis pour un StatefulSet
   selector:
     matchLabels:
       app: auth-mongo
@@ -20,7 +20,7 @@ spec:
         - containerPort: 27017
         volumeMounts:
         - name: pvc-auth-mongo
-          mountPath: /data/db
+          mountPath: /data/db/auth
   volumeClaimTemplates:  # Crée des PVC pour chaque pod
   - metadata:
       name: pvc-auth-mongo

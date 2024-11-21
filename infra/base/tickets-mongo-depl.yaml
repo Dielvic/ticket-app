@@ -4,7 +4,7 @@ metadata:
   name: tickets-mongo-stateful
 spec:
   replicas: 3
-  serviceName: "tickets-mongo-srv-headless"  # Requis pour un StatefulSet
+  serviceName: "tickets-mongo-srv"  # Requis pour un StatefulSet
   selector:
     matchLabels:
       app: tickets-mongo
@@ -20,7 +20,7 @@ spec:
         - containerPort: 27017
         volumeMounts:
         - name: pvc-tickets-mongo
-          mountPath: /data/db
+          mountPath: /data/db/tickets
   volumeClaimTemplates:  # Crée des PVC pour chaque pod
   - metadata:
       name: pvc-tickets-mongo
